@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "CalmBar",
+  "version": "1.3.0",
+  "description": "A calm search bar in the middle of your screen. Jump between tabs, find history and bookmarks, search any site with !bangs.",
+  "permissions": [
+    "tabs",
+    "history",
+    "bookmarks",
+    "sessions",
+    "storage",
+    "scripting",
+    "activeTab",
+    "favicon",
+    "topSites"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "open-newtab": {
+      "suggested_key": {
+        "default": "Alt+T",
+        "mac": "Alt+T"
+      },
+      "description": "New tab with the search bar"
+    },
+    "toggle-bar": {
+      "suggested_key": {
+        "default": "Alt+L",
+        "mac": "Alt+L"
+      },
+      "description": "Open the bar over the current page"
+    }
+  },
+  "action": {
+    "default_title": "CalmBar (⌥L)",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png"
+    }
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "_favicon/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "common.js",
+        "ui.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

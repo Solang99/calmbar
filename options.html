@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CalmBar – Settings</title>
+  <style>
+    :root { color-scheme: light dark; font: 14px/1.5 -apple-system, system-ui, sans-serif; }
+    body { max-width: 560px; margin: 40px auto; padding: 0 16px; }
+    label { display: block; margin: 18px 0 6px; font-weight: 600; }
+    select, input[type=color], textarea { font: inherit; }
+    textarea { width: 100%; min-height: 110px; font-family: ui-monospace, monospace; font-size: 12px; }
+    small, #saved { color: GrayText; }
+  </style>
+</head>
+<body>
+  <h1>CalmBar</h1>
+
+  <label for="engine">Default search engine</label>
+  <select id="engine"></select>
+
+  <label for="theme">Theme</label>
+  <select id="theme">
+    <option value="auto">Automatic (follows Chrome / macOS)</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+
+  <label for="accent">Accent color</label>
+  <input type="color" id="accent">
+  <small>Pick the main color of your Chrome theme.</small>
+
+  <label for="customBangs">Custom bangs</label>
+  <textarea id="customBangs" placeholder="r https://www.reddit.com/search/?q=%s"></textarea>
+  <small>One per line: key, space, URL with <code>%s</code> where the query goes. They override built-in bangs with the same key.</small>
+
+  <label>Available bangs</label>
+  <small id="bangs"></small>
+
+  <p><a href="#" id="shortcuts">Change shortcuts (⌥L, ⌥T)</a> · <span id="saved"></span></p>
+
+  <script src="common.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
